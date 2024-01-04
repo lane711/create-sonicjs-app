@@ -77,24 +77,24 @@ const main = async () => {
     console.log('Executing npm install...');
     process.chdir(projectPath);
     execSync('npm install')
-    console.log(`${infoColor}npm install successfully completed!${resetColor}`);
+    console.log(`${infoColor}Npm install successfully completed!${resetColor}`);
     cloudflareAccountId = cloudflareAccountId ?? await getParameter(settings.ACCOUNT_ID);
     cloudflareKvNamespaceId = cloudflareKvNamespaceId ?? await getParameter(settings.KV_NAMESPACE_ID);
     cloudflareKvNamespacePreviewId = cloudflareKvNamespacePreviewId ?? await getParameter(settings.KV_NAMESPACE_PREVIEW_ID);
     cloudflareDatabaseId = cloudflareDatabaseId ?? await getParameter(settings.DATABASE_ID);
-    console.log(`Parameters complete. start writing config...`);
+    console.log(`Parameters complete. Writing config...`);
     process.stdin.unref();
     let configFile;
     try {
         configFile = await getConfigFile();
     } catch(err) {
-        console.error(`${errorColor}could not read config file! aborting!${resetColor}`, err);
+        console.error(`${errorColor}Could not read config file! aborting!${resetColor}`, err);
         process.exit(1);
     }
     try{
         await writeFile(join(projectPath, `wrangler.toml`), configFile);
     } catch(err) {
-        console.error(`${errorColor}could not write config file! This might be a permissions issue. aborting!${resetColor}`, err);
+        console.error(`${errorColor}Could not write config file! This might be a permissions issue. aborting!${resetColor}`, err);
         process.exit(1);
     }
     try{
