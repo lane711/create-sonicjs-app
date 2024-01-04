@@ -10,6 +10,8 @@ console.log(`Let's install ...
 ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚════╝ ╚══════╝
                                                     `);
 
+console.log(`Install script version 1.0.1`);
+
 import { execSync } from 'node:child_process';
 import { writeFile, readFile, rm } from 'node:fs/promises';
 import { createInterface } from 'node:readline/promises';
@@ -61,10 +63,10 @@ const getParameter = async (setting) => {
 const getConfigFile = async () => {
     const configFileTemplate = (await readFile(join(projectPath, 'wrangler.example.toml'))).toString();
     const configFile = configFileTemplate
-        .replace('${ACCOUNT_ID}', cloudflareAccountId)
-        .replace('${KV_NAMESPACE_ID}', cloudflareKvNamespaceId)
-        .replace('${KV_NAMESPACE_PREVIEW_ID}', cloudflareKvNamespacePreviewId)
-        .replace('${DATABASE_ID}', cloudflareDatabaseId);
+        .replace('${ACCOUNT_ID}', cloudflareAccountId.trim())
+        .replace('${KV_NAMESPACE_ID}', cloudflareKvNamespaceId.trim())
+        .replace('${KV_NAMESPACE_PREVIEW_ID}', cloudflareKvNamespacePreviewId.trim())
+        .replace('${DATABASE_ID}', cloudflareDatabaseId.trim());
     return configFile;
 }
 
