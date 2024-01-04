@@ -1,6 +1,6 @@
 {
   "name": "create-sonicjs-app",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "SonicJs Headless CMS getting started script",
   "bin": {
     "create-sonicjs-app": "bin/index.mjs"
