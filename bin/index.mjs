@@ -136,6 +136,9 @@ const main = async () => {
   console.log(
     `SonicJS is setup successfully 🚀 To get started: ${infoColor}cd ${projectName}${resetColor}, ${infoColor}npm run dev${resetColor}`
   );
+  console.log(
+    `Tip: if you get any database errors, please run ${infoColor}cd ${projectName}${resetColor}, ${infoColor}npm run up${resetColor} to ensure that the database migrations are run`
+  );
 };
 
 main();
