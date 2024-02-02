@@ -11,5 +11,9 @@ npm login
 ```
 
 ```
+npm version patch
+```
+
+```
 npm publish
 ```
